@@ -2,6 +2,10 @@
 
 B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。基于 `bilibili-API-collect/docs/fav/` 实现，命令少、职责单一，全部操作可审计、可重跑。
 
+## 环境要求
+
+- Python 3.7+，**仅需标准库，无第三方依赖**（请求层用 `urllib` 实现，不需要 `curl` 或 `requests`）
+
 ## 命令一览
 
 ### 收藏夹
@@ -37,7 +41,7 @@ B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。基于 `b
 
 ## 参数
 
-- `--cookie PATH`：cookie 文件，默认 `./cookie.txt`（也可设环境变量 `BILI_COOKIE`）。需要含 `SESSDATA`、`bili_jct`（CSRF）、`DedeUserID`，后两者自动提取。
+- `--cookie PATH`：cookie 文件，默认 `./cookie.txt`（也可设环境变量 `BILI_COOKIE`）。需要含 `SESSDATA`、`bili_jct`（CSRF）、`DedeUserID`，后两者自动提取。⚠️ cookie 是你的**登录凭据**，请勿提交到 git、分享或截图外传。
 - `--outdir DIR`：数据目录，默认 `./data`，仅 `fetch` 使用。
 
 ## data/ 目录是什么
