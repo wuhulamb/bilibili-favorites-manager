@@ -1,10 +1,10 @@
 # bilibili-favorites-manager
 
-B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。基于 `bilibili-API-collect/docs/fav/` 实现，命令少、职责单一，全部操作可审计、可重跑。
+B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。
 
 ## 环境要求
 
-- Python 3.7+，**仅需标准库，无第三方依赖**（请求层用 `urllib` 实现，不需要 `curl` 或 `requests`）
+- Python 3.7+，**仅需标准库，无第三方依赖**
 
 ## 命令一览
 
@@ -23,7 +23,7 @@ B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。基于 `b
 |---|---|---|
 | `bili.py list <media_id>` | R | 查看某收藏夹内容（标题/BV/UP主/时长/失效状态） |
 | `bili.py fetch` | R | 把全部收藏夹内容备份快照到 `data/` |
-| `bili.py add <avid…> --to <夹id> [--from <夹id>]` | C | 添加视频。默认逐条直接添加（不依赖源夹）；提供 `--from` 时改为从源夹批量复制 |
+| `bili.py add <avid…> --to <夹id> [--from <夹id>]` | C | 添加视频。默认逐条添加；提供 `--from` 时从源夹批量复制 |
 | `bili.py remove <avid…> --from <夹id>` | D | 从收藏夹移除视频 |
 | `bili.py clean <media_id…>` | D | 清空收藏夹内全部失效内容 |
 
@@ -50,7 +50,7 @@ B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。基于 `b
 
 | 文件 | 内容 |
 |---|---|
-| `folders.json` | 收藏夹列表（id/名称/公开与否/数量，即 `folder/created/list-all` 原始返回） |
+| `folders.json` | 收藏夹列表（id/名称/公开与否/数量） |
 | `<media_id>.json` | 单个收藏夹的完整内容明细（每条含 avid/bvid/标题/UP主/时长/收藏时间等原始字段），文件名即收藏夹 id |
 
 ## 关联文档
