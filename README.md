@@ -53,13 +53,6 @@ B站收藏夹管理工具 —— **简单的增删改查（CRUD）**。基于 `b
 | `folders.json` | 收藏夹列表（id/名称/公开与否/数量，即 `folder/created/list-all` 原始返回） |
 | `<media_id>.json` | 单个收藏夹的完整内容明细（每条含 avid/bvid/标题/UP主/时长/收藏时间等原始字段），文件名即收藏夹 id |
 
-作用：
-1. **离线查看**：`fetch` 后不需在线即可用任意工具分析；
-2. **审计/回滚依据**：随时可对照线上与快照，确认操作结果；
-3. **批量操作的输入来源**：如从快照中提取 avid 列表作为 `add/remove` 的参数。
-
-每次 `fetch` 会覆盖旧快照（建议重大操作前先 `fetch` 留底）。
-
 ## 关联文档
 
 API 完整参考见 `bilibili-API-collect/docs/fav/{info,list,action}.md`。
