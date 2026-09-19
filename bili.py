@@ -263,8 +263,10 @@ def main():
     sub = p.add_subparsers(dest='cmd', required=True)
 
     common = argparse.ArgumentParser(add_help=False)
-    common.add_argument('--cookie', default=os.environ.get('BILI_COOKIE') or os.path.join(HERE, 'cookie.txt'))
-    common.add_argument('--outdir', default=os.path.join(HERE, 'data'))
+    # SUPPRESS: 子命令未显式给 --cookie/--outdir 时不覆盖主 parser 已解析的值，
+    # 保证参数放在子命令前/后均生效
+    common.add_argument('--cookie', default=argparse.SUPPRESS)
+    common.add_argument('--outdir', default=argparse.SUPPRESS)
 
     sp = sub.add_parser('folders', parents=[common]); sp.set_defaults(func=cmd_folders)
     sp = sub.add_parser('list', parents=[common]); sp.add_argument('media_id'); sp.set_defaults(func=cmd_list)
